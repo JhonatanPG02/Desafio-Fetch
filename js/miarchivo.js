@@ -115,10 +115,11 @@ loadEventListener()
 // Función aplicable a agregar productos al carrito.
 function agregarProducto(e) {
     e.preventDefault();
+    
     if(e.target.classList.contains('btn-producto')) {
     const productoSeleccionado = e.target.parentElement
     leerContenido(productoSeleccionado);
-    
+
     //Mensaje de producto agregado
     Swal.fire({
         position: 'center',
@@ -137,12 +138,12 @@ function eliminarProducto(e) {
     
     if(e.target.classList.contains('delete-product')) {
     const deleteId = e.target.getAttribute('data-id');
-    
+
     //Iteramos el array de los productos del carrito para identificar el producto a eliminar y restar el valor total.
     productosCarrito.forEach(value => {
         if (value.id == deleteId) {
             let precioDuplicado = parseFloat(value.price) * parseFloat(value.counter);
-            totalCard =  totalCard - precioDuplicado;
+            totalCard -= precioDuplicado;
         }
     });
 
@@ -150,10 +151,11 @@ function eliminarProducto(e) {
     productosCarrito = productosCarrito.filter(producto => producto.id !== deleteId)
 
     cantidadProducto--
+
     }
+
     leerHtml()
 }
-
 
 // Aplicamos una función que nos permita obtener las propiedades necesarias de cada producto que incluiremos al carrito: 
 function leerContenido(producto){
@@ -165,24 +167,27 @@ function leerContenido(producto){
         counter: 1
     }
 
-    totalCard = parseFloat(totalCard) + parseFloat(infoProducto.price)
+    totalCard += parseFloat(infoProducto.price)
 
     //Aplicamos validacion de productos existentes, la cual permita sumar la cantidad si ya existe.
     const existe = productosCarrito.some(producto => producto.id === infoProducto.id);
     if (existe) {
         const agregado = productosCarrito.map(producto => {
+           
             if (producto.id === infoProducto.id) {
                 producto.counter++;
                 return producto;
             } else {
                 return producto
-            }
+            }     
+        
         });
         
-        productosCarrito = agregado
+        productosCarrito = [...agregado]
     } else {
         
-        productosCarrito.push(infoProducto)
+        //Aplicando spreed operator y operador++
+        productosCarrito = [...productosCarrito, infoProducto]
         cantidadProducto++
     }
 
@@ -197,6 +202,7 @@ function leerHtml(){
     productosComprados.innerHTML = ''
 
     productosCarrito.forEach(producto => {
+        // Aplicando la destrudcturacion a cada objeto del array de productosCarrito.
         const {image, title, price, counter, id} = producto;
         const row = document.createElement('div');
         row.classList.add('item')
@@ -213,12 +219,14 @@ function leerHtml(){
 
         precioTotal.textContent = totalCard;
         
-        contadorCarrito.textContent= cantidadProducto
+        contadorCarrito.textContent = cantidadProducto
     });
 
     sincronizarStorage();
 
 }
+
+
 
 //Aplicamos la funcion para incluir los productos del carrito al localStorage
 function sincronizarStorage() {
