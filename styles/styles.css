@@ -1,26 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@1,700&family=Nunito:wght@800;900&display=swap');
 
-body {
-    background-color: white;
-}
+
 
 .container{
     max-width: 100%;
     text-align: center;
-    margin: auto;
     background-color: #117A65;
-    padding-left: 15px;
+    padding-left: 10px;
     padding-right: 40px;
-}
-
-.container h4 {
-    color: white;
-    font-size: 20px;
+    
 }
 
 .header-section{
     display: flex;
     justify-content: space-between;
-    margin: auto;
+    margin: 5px;
     align-items: center;
     position: relative;
 }
@@ -38,6 +32,7 @@ body {
     font-weight: 700;
     font-family: system-ui;
     line-height: 18px;
+    margin-top: 10px;
 }
 
 
@@ -61,6 +56,7 @@ body {
    border: 3px solid #117A65;
    border-radius: 10px;
    overflow: hidden;
+   background-color: white;
 }
 
 .pic {
@@ -72,7 +68,9 @@ body {
 
 .title {
     color: brown;
-    margin: 0.5rem;
+    margin: 0.2rem;
+    font-family: 'Arimo', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 .precio {
@@ -87,6 +85,7 @@ body {
     cursor: pointer;
     background-color: #117A65;
     color: white;
+    font-size: 15px;
 
 }
 
@@ -100,8 +99,8 @@ body {
     padding: 0 18px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
     display: none;
-
     min-width: 290px;
+    margin-right: 20px;
 }
 
 p.close-btn{
@@ -128,7 +127,7 @@ p.close-btn{
 }
 .cart-products .item .item-content h5{
     margin: 0;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 400;
     font-family: system-ui;
 }
@@ -159,3 +158,132 @@ p.close-btn{
     cursor: pointer;
     color: #000;
 }
+
+.copy {
+    background-color: rgb(122, 28, 28);
+    color: white;
+    text-align: center;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-top: 40px;
+}
+
+.logo{
+  width: 90px;
+  height: 90px;
+  padding-left: 30px;
+}
+
+* {
+    margin:0;
+    padding:0;
+    font-family: 'Arvo';
+  }
+  
+  body{
+    background-color: rgba(0, 0, 0, 0.936);
+  }
+  
+  .main{
+    height:40vh;
+    width:100%;  
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
+  h1{
+    text-align:center;
+    text-transform: uppercase;
+    color: white; 
+    font-size: 4rem;
+    font-family: 'Arimo', sans-serif;
+    font-family: 'Nunito', sans-serif;
+  }
+  
+  .roller{
+    height: 4.125rem;
+    line-height: 2rem;
+    position: relative;
+    overflow: hidden; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #117A65;
+   
+  }
+  
+  
+  #spare-time{
+    font-size: 1rem;
+    font-style: italic;
+    letter-spacing: 1rem;
+    margin-top: 0;
+    color: rgb(188, 33, 194);
+    font-family: 'Arimo', sans-serif;
+    font-family: 'Nunito', sans-serif;
+    
+  }
+  
+  .roller #rolltext {
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    animation: slide 5s infinite;  
+    font-family: 'Arimo', sans-serif;
+    font-family: 'Nunito', sans-serif;
+  }
+  
+  @keyframes slide {
+    0%{
+      top:0;
+    }
+    25%{
+      top: -4rem;    
+    }
+    50%{
+      top: -8rem;
+    }
+    72.5%{
+      top: -12.25rem;
+    }
+  }
+  
+  @media screen and (max-width: 600px){
+    h1{
+    text-align:center;
+    text-transform: uppercase;
+    color: #F1FAEE; 
+    font-size: 2.125rem;
+  }
+    
+    .roller{
+    height: 2.6rem; 
+    line-height: 2.125rem;  
+    }
+    
+    #spare-time {
+      font-size: 1rem;
+      letter-spacing: 0.1rem;
+    }
+    
+    .roller #rolltext {  
+    animation: slide-mob 5s infinite;  
+  }
+    
+    @keyframes slide-mob {
+    0%{
+      top:0;
+    }
+    25%{
+      top: -2.125rem;    
+    }
+    50%{
+      top: -4.25rem;
+    }
+    72.5%{
+      top: -6.375rem;
+    }
+  }
+  }

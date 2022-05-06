@@ -136,7 +136,21 @@ function agregarProducto(e) {
 // Función aplicable a agregar productos al carrito.
 function eliminarProducto(e) {
     
-    if(e.target.classList.contains('delete-product')) {
+    Swal.fire({
+        title: 'Estas seguro de eliminar el producto?',
+     //   text: "Presio si para confirmar o",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Producto Eliminado!',
+          )
+// Si confirma la eliminación ingresa a ejecutarte, de lo contrario se cancela.       
+if(e.target.classList.contains('delete-product')) {
     const deleteId = e.target.getAttribute('data-id');
 
     //Iteramos el array de los productos del carrito para identificar el producto a eliminar y restar el valor total.
@@ -155,6 +169,10 @@ function eliminarProducto(e) {
     }
 
     leerHtml()
+
+        }
+      })
+    
 }
 
 // Aplicamos una función que nos permita obtener las propiedades necesarias de cada producto que incluiremos al carrito: 
