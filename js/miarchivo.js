@@ -1,50 +1,3 @@
-// Array de productos a ofrecer
-const productos = [
-    {
-        id: 1,
-        categoria: "hamburguesa",
-        nombre: "clasica",
-        precio: 8,
-        foto: "../images/clasica.jpeg"
-
-    },
-    {
-        id: 2,
-        categoria: "hamburguesa",
-        nombre: "royal",
-        precio: 10,
-        foto: "../images/royal.jpeg"
-    },
-    {
-        id: 3,
-        categoria: "hamburguesa",
-        nombre: "suprema",
-        precio: 15,
-        foto: "../images/suprema.jpeg"
-    },
-    {
-        id: 4,
-        categoria: "bebida",
-        nombre: "coca cola",
-        precio: 3,
-        foto: "../images/coca-cola.jpeg"
-    },
-    {
-        id: 5,
-        categoria: "bebida",
-        nombre: "pepsi",
-        precio: 2,
-        foto: "/images/pepsi.jpeg"
-    },
-    {
-        id: 6,
-        categoria: "bebida",
-        nombre: "fanta",
-        precio: 1.5,
-        foto: "../images/fanta.jpeg"
-    },
-]
-
 
 const contenedorProductos = document.querySelector(".contenedor-productos");
 const productosComprados = document.querySelector('.card-items');
@@ -57,35 +10,38 @@ let cantidadProducto = 0;
 
 
 document.addEventListener('DOMContentLoaded', () => {
-   
-    mostrarProductos()
+    //Llamamos a la funcion para visualizar los productos
+    productos()
 
 })
 
-// Interactuamos con HTML desde Javascript sobre el DOM para agregar elementos:
-function mostrarProductos() {
+//Aplicams un Fetch para hacer el llamado a la data.
+  const productos = async () => {
 
-    productos.forEach(producto => {
+	const resp = await
 
-        // Creacion de elementos: div-img-h2
-        const divProducto = document.createElement('div');
+fetch('http://127.0.0.1:5501/data.json')
+const data = await resp.json()
+// Aplicamos un forEach y por cada producto realizamos eventos para mostrarlo en la web
+data.forEach( ({id, nombre, precio, foto}) => {
+	    const divProducto = document.createElement('div');
         divProducto.classList.add('carta');
 
         const fotoProducto = document.createElement('img')
         fotoProducto.classList.add('pic');
-        fotoProducto.src = producto.foto
+        fotoProducto.src = foto
 
         const tituloProducto = document.createElement('h2')
         tituloProducto.classList.add('title')
-        tituloProducto.textContent = producto.nombre
+        tituloProducto.textContent = nombre
 
         const precioProducto = document.createElement('h4')
         precioProducto.classList.add('precio')
-        precioProducto.textContent = `${producto.precio}$`
+        precioProducto.textContent = `${precio}$`
 
         const buttonProducto = document.createElement('button')
         buttonProducto.classList.add('btn-producto')
-        buttonProducto.setAttribute('data-id', producto.id)
+        buttonProducto.setAttribute('data-id', id)
         buttonProducto.textContent = 'Agregar a Carrito'
  
 
@@ -96,10 +52,9 @@ function mostrarProductos() {
         divProducto.appendChild(buttonProducto)
 
         contenedorProductos.appendChild(divProducto)
-        
+
     });
 }
-
 
 // Aplicamos funciones de eventos para agregar o eliminar productos.
 function loadEventListener() {
@@ -128,9 +83,7 @@ function agregarProducto(e) {
         showConfirmButton: false,
         timer: 1000
       })
-
-    }
-    
+    }  
 }
 
 // Función aplicable a agregar productos al carrito.
@@ -138,7 +91,6 @@ function eliminarProducto(e) {
     
     Swal.fire({
         title: 'Estas seguro de eliminar el producto?',
-     //   text: "Presio si para confirmar o",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -146,33 +98,28 @@ function eliminarProducto(e) {
         confirmButtonText: 'Sí, eliminar!'
       }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire(
-            'Producto Eliminado!',
-          )
-// Si confirma la eliminación ingresa a ejecutarte, de lo contrario se cancela.       
-if(e.target.classList.contains('delete-product')) {
-    const deleteId = e.target.getAttribute('data-id');
+          Swal.fire('Producto Eliminado!',)
+            // Si confirma la eliminación ingresa a ejecutarte, de lo contrario se cancela.       
+            if(e.target.classList.contains('delete-product')) {
+                const deleteId = e.target.getAttribute('data-id');
+        
+             //Iteramos el array de los productos del carrito para identificar el producto a eliminar y restar el valor total.
+            productosCarrito.forEach(value => {
+                if (value.id == deleteId) {
+                let precioDuplicado = parseFloat(value.price) * parseFloat(value.counter);
+                totalCard -= precioDuplicado;
+                }
+            });
+            leerHtml()
 
-    //Iteramos el array de los productos del carrito para identificar el producto a eliminar y restar el valor total.
-    productosCarrito.forEach(value => {
-        if (value.id == deleteId) {
-            let precioDuplicado = parseFloat(value.price) * parseFloat(value.counter);
-            totalCard -= precioDuplicado;
-        }
-    });
-
-    //Iteramos el array de los productos del carrito para filtrar solo los productos que no coinciden con lo seleccionado.
-    productosCarrito = productosCarrito.filter(producto => producto.id !== deleteId)
-
-    cantidadProducto--
-
-    }
-
+                //Iteramos el array de los productos del carrito para filtrar solo los productos que no coinciden con lo seleccionado.
+                    productosCarrito = productosCarrito.filter(producto => producto.id !== deleteId)
+                    cantidadProducto--
+          }
+        } 
     leerHtml()
-
-        }
-      })
-    
+     })
+      
 }
 
 // Aplicamos una función que nos permita obtener las propiedades necesarias de cada producto que incluiremos al carrito: 
@@ -207,10 +154,9 @@ function leerContenido(producto){
         //Aplicando spreed operator y operador++
         productosCarrito = [...productosCarrito, infoProducto]
         cantidadProducto++
-    }
+    }   
 
     leerHtml();
-    
 }
 
 
@@ -237,7 +183,8 @@ function leerHtml(){
 
         precioTotal.textContent = totalCard;
         
-        contadorCarrito.textContent = cantidadProducto
+        contadorCarrito.textContent = cantidadProducto;
+        if(totalCard == 0) contadorCarrito.textContent = 0;
     });
 
     sincronizarStorage();
@@ -252,6 +199,7 @@ function sincronizarStorage() {
 }
 
 
+//Función para mostrar el modal del carrito
 function showCart(x){
     document.getElementById("products-id").style.display = "block";
 }

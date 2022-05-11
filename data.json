@@ -1,0 +1,60 @@
+
+[
+    {
+        "id": 1,
+        "categoria": "hamburguesa",
+        "nombre": "clasica",
+        "precio": 8,
+        "foto": "../images/clasica.jpeg"
+
+    },
+    {
+        "id": 2,
+        "categoria": "hamburguesa",
+        "nombre": "royal",
+        "precio": 10,
+        "foto": "../images/royal.jpeg"
+    },
+    {
+        "id": 3,
+        "categoria": "hamburguesa",
+        "nombre": "suprema",
+        "precio": 15,
+        "foto": "../images/suprema.jpeg"
+    },
+    {
+        "id": 4,
+        "categoria": "papas fritas",
+        "nombre": "papas adicionales",
+        "precio": 4,
+        "foto": "../images/papas.png"
+    },
+    {
+        "id": 5,
+        "categoria": "nuggets",
+        "nombre": "nuggets",
+        "precio": 5,
+        "foto": "../images/nuggets.jpeg"
+    },
+    {
+        "id": 6,
+        "categoria": "bebida",
+        "nombre": "coca cola",
+        "precio": 3,
+        "foto": "../images/coca-cola.jpeg"
+    },
+    {
+        "id": 7,
+        "categoria": "bebida",
+        "nombre": "pepsi",
+        "precio": 2,
+        "foto": "/images/pepsi.jpeg"
+    },
+    {
+        "id": 8,
+        "categoria": "bebida",
+        "nombre": "fanta",
+        "precio": 1.5,
+        "foto": "../images/fanta.jpeg"
+    }
+]
