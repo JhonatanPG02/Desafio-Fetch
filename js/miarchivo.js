@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const resp = await
 
-fetch('http://127.0.0.1:5501/data.json')
+fetch('https://github.com/JhonatanPG02/Proyecto-Final-BurgerFire/blob/main/data.json')
 const data = await resp.json()
 // Aplicamos un forEach y por cada producto realizamos eventos para mostrarlo en la web
 data.forEach( ({id, nombre, precio, foto}) => {
