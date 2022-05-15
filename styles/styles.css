@@ -386,6 +386,12 @@ p.close-btn{
     grid-gap: 20px;
     padding: 20px 20px;
   }
+  .pic {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+  }
   }
 
   @media screen and (max-width: 600px){
@@ -406,6 +412,13 @@ p.close-btn{
     grid-gap: 20px;
     padding: 20px 20px;
   }
+
+  .pic {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+}
     
     .roller{
     height: 2.6rem; 
