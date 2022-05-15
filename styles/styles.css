@@ -5,8 +5,8 @@ body{
   /*background-image: url('/images/burger.jpeg');*/
   
   background: #000000; 
-  background: -webkit-linear-gradient(to right, rgba(231, 77, 60, 0.20), #000000f2), url('/images/burger.jpeg');  
-  background: linear-gradient(to right, rgba(231, 77, 60, 0.20), #000000f2), url('/images/burger.jpeg'); 
+  background: -webkit-linear-gradient(to right, rgba(231, 77, 60, 0.20), #000000f2), url('../images/burger.jpeg');  
+  background: linear-gradient(to right, rgba(231, 77, 60, 0.20), #000000f2), url('../images/burger.jpeg'); 
  
  
   background-size: 100%;

@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
-//Aplicams un Fetch para hacer el llamado a la data.
+//Aplicamos un Fetch para hacer el llamado a la data.
   const productos = async () => {
 
 	const resp = await
@@ -191,13 +191,10 @@ function leerHtml(){
 
 }
 
-
-
 //Aplicamos la funcion para incluir los productos del carrito al localStorage
 function sincronizarStorage() {
     localStorage.setItem('carrito', JSON.stringify(productosCarrito));
 }
-
 
 //Función para mostrar el modal del carrito
 function showCart(x){
