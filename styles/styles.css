@@ -109,7 +109,8 @@ body{
 
 .btn-producto:hover {
   background-color: rgb(45, 94, 219);
-  color: white
+  color: white;
+  transition: all 0.5s;
 }
 
 
