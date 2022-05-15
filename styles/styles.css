@@ -71,9 +71,8 @@ body{
 
 .carta:hover {
   transform: scale(1.1);
+  transition: all 0.5s;
 }
-
-
 
 .pic {
     width: 200px;
@@ -199,15 +198,12 @@ p.close-btn{
   padding-left: 30px;
 }
 
-
 * {
     margin:0;
     padding:0;
     font-family: 'Arvo';
     font-family: 'Nunito', sans-serif;
   }
-  
-
   
   .main{
     height:30vh;
@@ -275,10 +271,6 @@ p.close-btn{
   }
   
 /* Footer*/
-
-
-
-
 .grupo-1 {
   background-color: rgb(35, 34, 34);
   width: 100%;
@@ -331,8 +323,6 @@ p.close-btn{
   color: #14dfb7;
 }
 
-
-
 /*Media Query*/
 
   @media screen and (max-width: 900px){
@@ -357,7 +347,6 @@ p.close-btn{
 
   }
 
-
   @media screen and (max-width: 800px){
     .contenedor-productos{
       display: grid;
@@ -379,7 +368,6 @@ p.close-btn{
 
   }
 
-
   @media screen and (max-width: 700px){
     .contenedor-productos{
       display: grid;
@@ -399,8 +387,6 @@ p.close-btn{
     padding: 20px 20px;
   }
   }
-
-
 
   @media screen and (max-width: 600px){
     h1{
@@ -457,8 +443,6 @@ p.close-btn{
     padding: 10px;
     justify-content: center;
 }
-
-
 
   }
   
