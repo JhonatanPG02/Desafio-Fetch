@@ -33,7 +33,7 @@ body{
 }
 .header-section p{
     position: absolute;
-    top: -24px;
+    top: -19px;
     right: -8px;
     background-color: #fff;
     padding: 1px 6px;
@@ -87,10 +87,12 @@ body{
     margin: 0.2rem;
     font-family: 'Arimo', sans-serif;
     font-family: 'Nunito', sans-serif;
+    font-size: 15px;
 }
 
 .precio {
-    margin: 0.3rem
+    margin: 0.3rem;
+    font-size: 12px;
 }
 
 .btn-producto {
@@ -101,7 +103,7 @@ body{
     cursor: pointer;
     background-color: #117A65;
     color: white;
-    font-size: 15px;
+    font-size: 12px;
 
 }
 
@@ -112,7 +114,7 @@ body{
 
 
 .cart-products{
-    border: 2px solid red;
+    border: 2px solid #117A65;
     position: absolute!important;
     top: 82px;
     right: -18px;
@@ -181,12 +183,13 @@ p.close-btn{
 }
 
 .copy {
-    background-color: rgb(122, 28, 28);
+    background-color: #117A65;
     color: white;
     text-align: center;
     padding: 10px 10px;
-    margin-top: 40px;
-    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
 }
 
 .logo{
@@ -270,12 +273,151 @@ p.close-btn{
     }
   }
   
+/* Footer*/
+
+
+
+
+.grupo-1 {
+  background-color: rgb(35, 34, 34);
+  width: 100%;
+  max-width: 1350px;
+  margin: 40px auto 10px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  padding: 20px 20px;
+}
+
+.grupo-1 .box figure{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grupo-1 .box figure img{
+  width: 200px;
+  border-radius: 50%;
+}
+
+.grupo-1 .box h2{
+  color: #fff;
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+
+.grupo-1 .box p{
+  color: #efefef;
+  margin-bottom: 10px;
+}
+
+.grupo-1 .red-social a{
+  display: inline-block;
+  text-decoration: none;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  color: #fff;
+  margin-right: 10px;
+  text-align: center;
+  transition: all 300ms ease;
+  font-size: 25px;
+}
+
+.grupo-1 .red-social a:hover{
+  color: #14dfb7;
+}
+
+
+
+/*Media Query*/
+
+  @media screen and (max-width: 900px){
+    .contenedor-productos{
+      display: grid;
+      gap: 30px;
+      grid-template-columns: auto auto;
+      padding: 10px;
+      justify-content: center;
+  }
+
+  .grupo-1 {
+    background-color: rgb(35, 34, 34);
+    width: 90%;
+    max-width: 1400px;
+    margin: 40px 2px 2px 2px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+    padding: 20px 20px;
+  }
+
+  }
+
+
+  @media screen and (max-width: 800px){
+    .contenedor-productos{
+      display: grid;
+      gap: 30px;
+      grid-template-columns: auto auto;
+      padding: 10px;
+      justify-content: center;
+  }
+  .grupo-1 {
+    background-color: rgb(35, 34, 34);
+    width: 90%;
+    max-width: 1350px;
+    margin: 40px auto 10px auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+    padding: 20px 20px;
+  }
+
+  }
+
+
+  @media screen and (max-width: 700px){
+    .contenedor-productos{
+      display: grid;
+      gap: 30px;
+      grid-template-columns: auto auto;
+      padding: 10px;
+      justify-content: center;
+  }
+  .grupo-1 {
+    background-color: rgb(35, 34, 34);
+    width: 90%;
+    max-width: 1350px;
+    margin: 40px auto 10px auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+    padding: 20px 20px;
+  }
+  }
+
+
+
   @media screen and (max-width: 600px){
     h1{
     text-align:center;
     text-transform: uppercase;
     color: #F1FAEE; 
     font-size: 2.125rem;
+  }
+
+  .grupo-1 {
+    background-color: rgb(35, 34, 34);
+    width: 90%;
+    max-width: 1350px;
+    margin: 40px auto 10px auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+    padding: 20px 20px;
   }
     
     .roller{
@@ -306,5 +448,16 @@ p.close-btn{
       top: -6.375rem;
     }
   }
+
+  .contenedor-productos{
+    display: grid;
+    gap: 30px;
+    grid-template-columns: auto auto;
+    padding: 10px;
+    justify-content: center;
+}
+
+
+
   }
   
